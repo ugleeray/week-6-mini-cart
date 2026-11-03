@@ -1,0 +1,22 @@
+{
+  "name": "mini-cart",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others --names api,web \"node server/api.js\" \"vite\"",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@napi-rs/wasm-runtime": "1.2.5",
+    "@rolldown/binding-wasm32-wasi": "1.2.15",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "concurrently": "^10.0.6",
+    "express": "^5.3.0",
+    "vite": "^8.1.5"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "categories": ["fruit", "bakery", "drinks"],
+  "items": [
+    { "id": "fr1", "category": "fruit", "name": "Banana", "price": 0.6, "emoji": "🍌" },
+    { "id": "fr2", "category": "fruit", "name": "Mango", "price": 2.4, "emoji": "🥭" },
+    { "id": "fr3", "category": "fruit", "name": "Strawberries", "price": 4.9, "emoji": "🍓" },
+    { "id": "fr4", "category": "fruit", "name": "Green apple", "price": 0.95, "emoji": "🍏" },
+    { "id": "bk1", "category": "bakery", "name": "Wholemeal loaf", "price": 3.2, "emoji": "🍞" },
+    { "id": "bk2", "category": "bakery", "name": "Croissant", "price": 2.1, "emoji": "🥐" },
+    { "id": "bk3", "category": "bakery", "name": "Bagel", "price": 1.5, "emoji": "🥯" },
+    { "id": "dr1", "category": "drinks", "name": "Soy milk", "price": 2.75, "emoji": "🥛" },
+    { "id": "dr2", "category": "drinks", "name": "Sparkling water", "price": 1.3, "emoji": "💧" },
+    { "id": "dr3", "category": "drinks", "name": "Iced lemon tea", "price": 1.8, "emoji": "🍋" }
+  ]
+}
