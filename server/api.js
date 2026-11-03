@@ -19,7 +19,9 @@ app.get('/api/items', (req, res) => {
 // TODO 8: Add Reset and Checkout buttons (POST /api/checkout)
 // Read req.body.cart, add up price × quantity, and send back { receiptId, cart, total }.
 app.post('/api/checkout', (req, res) => {
-  res.status(501).json({ error: 'Checkout is not built yet' })
+  const cart = req.body.cart ?? []
+  const total = cart.reduce((sum, line) => sum + line.price * line.quantity, 0)
+  res.json({ receiptId: Date.now().toString(36), cart, total })
 })
 
 app.listen(3001, () => {

@@ -41,6 +41,16 @@ watch(cart, (value) => localStorage.setItem('cart', JSON.stringify(value)), { de
 
 // TODO 8: Add Reset and Checkout buttons (POST /api/checkout)
 // Reset empties the cart. Checkout sends { cart } and shows the receipt that comes back.
+function reset() {
+  cart.value = []
+  receipt.value = null
+}
+
+async function checkout() {
+  const { data } = await axios.post('/api/checkout', { cart: cart.value })
+  receipt.value = data
+  cart.value = []
+}
 </script>
 
 <template>
@@ -74,6 +84,9 @@ watch(cart, (value) => localStorage.setItem('cart', JSON.stringify(value)), { de
       </ul>
 
       <p><strong>Total: ${{ total.toFixed(2) }}</strong></p>
+
+      <button @click="reset">Reset</button>
+      <button @click="checkout" :disabled="cart.length === 0">Checkout</button>
 
       <div v-if="receipt" class="receipt">
         <strong>Receipt #{{ receipt.receiptId }}</strong>
