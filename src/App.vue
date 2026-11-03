@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import ItemCard from './components/ItemCard.vue'
 
 const categories = ref([])
 const selectedCategory = ref('')
@@ -53,6 +54,7 @@ function addToCart(item) {
 
       <!-- TODO 3: Create the ItemCard component with an items prop -->
       <!-- Then import ItemCard above, show it here, and listen for its add-to-cart event. -->
+      <ItemCard :items="items" @add-to-cart="addToCart" />
     </section>
 
     <aside class="cart">

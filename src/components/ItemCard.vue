@@ -1,6 +1,7 @@
 <script setup>
 // TODO 3: Create the ItemCard component with an items prop
 // Declare the prop with defineProps. Each item looks like { id, name, price, emoji }.
+const props = defineProps({ items: { type: Array, required: true } })
 
 // TODO 4: Emit add-to-cart from ItemCard
 // Declare the event with defineEmits, then emit it from addToCart with the matching item.
