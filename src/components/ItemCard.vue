@@ -5,7 +5,11 @@ const props = defineProps({ items: { type: Array, required: true } })
 
 // TODO 4: Emit add-to-cart from ItemCard
 // Declare the event with defineEmits, then emit it from addToCart with the matching item.
+const emit = defineEmits(['add-to-cart'])
+
 function addToCart(id) {
+  const item = props.items.find((i) => i.id === id)
+  emit('add-to-cart', item)
 }
 </script>
 
