@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 import ItemCard from './components/ItemCard.vue'
 
@@ -33,6 +33,7 @@ function addToCart(item) {
 }
 
 // TODO 6: Show the cart total with a computed property
+const total = computed(() => cart.value.reduce((sum, l) => sum + l.price * l.quantity, 0))
 
 // TODO 7: Save the cart to localStorage and load it on start
 
@@ -69,6 +70,8 @@ function addToCart(item) {
           <span>${{ (line.price * line.quantity).toFixed(2) }}</span>
         </li>
       </ul>
+
+      <p><strong>Total: ${{ total.toFixed(2) }}</strong></p>
 
       <div v-if="receipt" class="receipt">
         <strong>Receipt #{{ receipt.receiptId }}</strong>
