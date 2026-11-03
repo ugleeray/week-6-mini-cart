@@ -20,6 +20,8 @@ onMounted(async () => {
 // TODO 2: Fetch items for the selected category with axios
 // Call GET /api/items with the selected category as a query parameter.
 async function loadItems() {
+  const { data } = await axios.get('/api/items', { params: { category: selectedCategory.value } })
+  items.value = data
 }
 
 // TODO 5: Add the item to the cart in the parent (increase quantity if it's already there)
