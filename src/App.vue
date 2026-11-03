@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import axios from 'axios'
 import ItemCard from './components/ItemCard.vue'
 
@@ -36,6 +36,8 @@ function addToCart(item) {
 const total = computed(() => cart.value.reduce((sum, l) => sum + l.price * l.quantity, 0))
 
 // TODO 7: Save the cart to localStorage and load it on start
+cart.value = JSON.parse(localStorage.getItem('cart') ?? '[]')
+watch(cart, (value) => localStorage.setItem('cart', JSON.stringify(value)), { deep: true })
 
 // TODO 8: Add Reset and Checkout buttons (POST /api/checkout)
 // Reset empties the cart. Checkout sends { cart } and shows the receipt that comes back.
