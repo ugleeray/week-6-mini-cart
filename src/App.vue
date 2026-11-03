@@ -27,6 +27,9 @@ async function loadItems() {
 
 // TODO 5: Add the item to the cart in the parent (increase quantity if it's already there)
 function addToCart(item) {
+  const line = cart.value.find((l) => l.id === item.id)
+  if (line) line.quantity++
+  else cart.value.push({ ...item, quantity: 1 })
 }
 
 // TODO 6: Show the cart total with a computed property
